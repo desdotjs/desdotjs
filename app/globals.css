@@ -51,6 +51,7 @@ body {
 }
 
 .cv-container {
+  /* also used as a container in different app routes - too lazy to rename */
     
     text-align: left;
     position: sticky;

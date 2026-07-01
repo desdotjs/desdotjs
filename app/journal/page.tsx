@@ -51,38 +51,6 @@ export default function Home() {
 
       <div className="cv-container">
         <h1>artist cv</h1>
-
-        <h3>Education</h3>
-        <h4>School of the Art Institute of Chicago 2024 - 2027</h4>
-        <p><i>Bachelors of Fine Arts and Creative Technologies</i></p>
-        <p>
-          Interdisciplinary coursework spanning interactive systems, generative media, 3D
-          environments, video editing, UI/UX fundamentals, and TouchDesigner.
-        </p>
-
-        <hr />
-
-        <h3>Exhibitions</h3>
-        <h4>
-          2025 - Installation,{" "}
-          <a href="https://desdotjs.github.io/weird-girl-world/laundry-space/laundry-space-index.html">
-            <i>Laundry Space</i>
-          </a>
-        </h4>
-        <p><i>School of the Art Institute Technology Department, Chicago, IL</i></p>
-
-        <hr />
-
-        <h3>Projects</h3>
-        <h4>
-          2026 to Present -{" "}
-          <a href="https://www.instagram.com/desdotjs/">
-            <i>@desdotjs</i>
-          </a>
-        </h4>
-        <p><i>Digital Research Journal</i></p>
-
-        <hr />
       </div>
 
       <div className="nav-container">
