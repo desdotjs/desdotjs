@@ -47,7 +47,7 @@ export default function Home() {
 
       <div className="cv-container">
         <h1>archive</h1>
-        <p><a href="https://desdotjs.github.io/weird-girl-world/"> https://desdotjs.github.io/weird-girl-world/" </a></p>
+        <p><a href="https://desdotjs.github.io/weird-girl-world/"> https://desdotjs.github.io/weird-girl-world/ </a></p>
       </div>
 
       <div className="nav-container">

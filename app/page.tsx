@@ -38,15 +38,15 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.artContainer}>
-
-      <HeaderArt />
-
-      </div>
+<div className={styles.artWrapper}>
+  <div className={styles.artContainer}>
+    <HeaderArt />
+  </div>
+</div>
 
       <div className="top-wrapper">
         <div className="header-container">
-          <h1>desdotjs</h1>
+          <h1>desdotjs.com</h1>
         </div>
       </div>
 

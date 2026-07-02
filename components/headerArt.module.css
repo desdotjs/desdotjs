@@ -1,8 +1,13 @@
-.artContainer {
+.artWrapper {
   width: 100%;
-  height: 740px;
+  height: 900px;
   position: relative;
   overflow: hidden;
+}
+
+.artContainer {
+  width: 100%;
+  height: 100%;
 }
 
 .p5Container {
@@ -10,8 +15,8 @@
   height: 100%;
 }
 
-@media (max-width: 100%) {
-  .artContainer {
-    height: 500px;
+@media (max-width: 768px) {
+  .artWrapper {
+    height: 550px;
   }
 }

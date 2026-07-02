@@ -19,34 +19,36 @@ const lpsSketch = (p) => {
   }
 
   function buildGrid() {
-    let { width, height } = getContainerSize();
+  let { width, height } = getContainerSize();
 
-    let isMobile = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches;
+  let isMobile = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches;
 
-    if (isMobile) {
-      cellSize = mobileCellSize;
-    } else {
-      cellSize = baseCellSize * (width / baseContainerWidth);
-    }
+  if (isMobile) {
+    cellSize = mobileCellSize;
+  } else {
+    cellSize = baseCellSize * (width / baseContainerWidth);
+  }
 
-    cols = Math.ceil(width / cellSize);
-    rows = Math.ceil(height / cellSize);
-    grid = [];
+  cols = Math.ceil(width / cellSize);
+  rows = Math.floor(height / cellSize);
+  grid = [];
 
-    for (let y = 0; y < rows; y++) {
-      grid[y] = [];
-      for (let x = 0; x < cols; x++) {
-        let cx = x * cellSize + cellSize / 2;
-        let cy = y * cellSize + cellSize / 2;
-        let baseImg = (x + y) % 2 === 0 ? lps1 : lps2;
-        grid[y][x] = new Cell(cx, cy, baseImg, x, y);
+  let offsetX = (width - cols * cellSize) / 2;
 
-        if (toggledCells.has(`${x},${y}`)) {
-          grid[y][x].current = lps3;
-        }
+  for (let y = 0; y < rows; y++) {
+    grid[y] = [];
+    for (let x = 0; x < cols; x++) {
+      let cx = offsetX + x * cellSize + cellSize / 2;
+      let cy = y * cellSize + cellSize / 2;
+      let baseImg = (x + y) % 2 === 0 ? lps1 : lps2;
+      grid[y][x] = new Cell(cx, cy, baseImg, x, y);
+
+      if (toggledCells.has(`${x},${y}`)) {
+        grid[y][x].current = lps3;
       }
     }
   }
+}
 
   class Cell {
     constructor(x, y, baseImg, gridX, gridY) {

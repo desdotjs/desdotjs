@@ -1,13 +1,12 @@
-
 body {
 
-    font-family: 'Times New Roman';
-    font-size: 16px;
-    color: #000;
-    display: flex;
-    margin: 0 auto;
-    max-width: none;
-    flex-direction: column;
+  font-family: 'Times New Roman';
+  font-size: 16px;
+  color: #000;
+  display: flex;
+  margin: 0 auto;
+  max-width: none;
+  flex-direction: column;
 
 }
 
@@ -22,16 +21,16 @@ body {
 
 .top-wrapper {
 
-    margin: 0 auto;
-    width: 100%;
+  margin: 0 auto;
+  width: 100%;
 
 }
 
-.header-container { 
+.header-container {
 
-    font-family: 'my-handwriting';
-    text-align: center;
-    font-size: 50px;
+  font-family: 'my-handwriting';
+  text-align: center;
+  font-size: 50px;
 
 }
 
@@ -52,11 +51,11 @@ body {
 
 .cv-container {
   /* also used as a container in different app routes - too lazy to rename */
-    
-    text-align: left;
-    position: sticky;
-    justify-content: left;
-    margin: 0 250px 0px 50px;
+
+  text-align: left;
+  position: sticky;
+  justify-content: left;
+  margin: 0 250px 0px 50px;
 
 }
 
@@ -77,15 +76,17 @@ body {
 
 .nav-container {
 
-    display: flexbox;
-    right: 0;
-    top: 50%;
-    position: fixed; /* static, relative, fixed, sticky, absolute */
-    padding-right: 30px;
+  display: flexbox;
+  right: 0;
+  top: 50%;
+  position: fixed;
+  /* static, relative, fixed, sticky, absolute */
+  padding-right: 30px;
 
 }
 
-ul, a {
+ul,
+a {
 
   list-style: none;
   color: black;
@@ -111,45 +112,52 @@ h4 {
 
 @media (max-width: 768px) {
 
-    .cv-container {
-    
+  .cv-container {
+
     text-align: left;
     position: sticky;
     justify-content: left;
     margin: 0 150px 0px 40px;
 
-    }
+  }
 
-    .cv-container p {
+  .cv-container p {
 
     margin: 0.5rem 0;
 
-    }
+  }
 
-    .cv-container hr {
+  .cv-container hr {
 
     border: none;
     background-color: #000;
     height: 1px;
     margin: 1.5rem 0;
 
-    }
+  }
 
-    .nav-container {
+  .nav-container {
 
     display: flexbox;
     right: 0;
     top: 50%;
-    position: fixed; /* static, relative, fixed, sticky, absolute */
+    position: fixed;
+    /* static, relative, fixed, sticky, absolute */
     padding-right: 20px;
 
-    }
-
-    .header-container {
-
-    font-size: 30px;
-    
   }
 
+  .header-container {
+
+    font-size: 30px;
+
+  }
+
+  h1 {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
 
 }
