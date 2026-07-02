@@ -1,0 +1,11 @@
+.artContainer {
+  width: 100%;
+  height: 740px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p5Container {
+  width: 100%;
+  height: 100%;
+}

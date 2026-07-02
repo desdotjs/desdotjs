@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import HeaderArt from "@/components/headerArt";
+import styles from "@/components/headerArt.module.css";
 
 export default function Home() {
   useEffect(() => {
@@ -36,16 +38,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="art-container"></div>
+      <div className={styles.artContainer}>
+
+      <HeaderArt />
+
+      </div>
 
       <div className="top-wrapper">
         <div className="header-container">
           <h1>desdotjs</h1>
-        </div>
-
-        <div className="button-container">
-          <a href="/journal">
-          </a>
         </div>
       </div>
 

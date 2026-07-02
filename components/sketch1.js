@@ -1,0 +1,121 @@
+const baseCellSize = 150;
+const baseContainerWidth = 1200; // reference width cellSize was designed for
+
+const lpsSketch = (p) => {
+  let lps1, lps2, lps3;
+  let grid = [];
+  let cols, rows;
+  let cellSize;
+
+  function getContainerSize() {
+    let container = p.canvas.parentElement;
+    return {
+      width: container.offsetWidth,
+      height: container.offsetHeight,
+    };
+  }
+
+  function buildGrid() {
+    let { width, height } = getContainerSize();
+
+    cellSize = baseCellSize * (width / baseContainerWidth);
+
+    cols = Math.ceil(width / cellSize);
+    rows = Math.ceil(height / cellSize);
+    grid = [];
+
+    for (let y = 0; y < rows; y++) {
+      grid[y] = [];
+      for (let x = 0; x < cols; x++) {
+        let cx = x * cellSize + cellSize / 2;
+        let cy = y * cellSize + cellSize / 2;
+        let baseImg = (x + y) % 2 === 0 ? lps1 : lps2;
+        grid[y][x] = new Cell(cx, cy, baseImg);
+      }
+    }
+  }
+
+  class Cell {
+    constructor(x, y, baseImg) {
+      this.x = x;
+      this.y = y;
+      this.base = baseImg;
+      this.current = baseImg;
+    }
+
+    show() {
+      p.image(this.current, this.x, this.y, cellSize, cellSize);
+    }
+
+    toggle() {
+      if (this.current === this.base) {
+        this.current = lps3;
+      } else {
+        this.current = this.base;
+      }
+    }
+
+    contains(mx, my) {
+      return (
+        mx > this.x - cellSize / 2 &&
+        mx < this.x + cellSize / 2 &&
+        my > this.y - cellSize / 2 &&
+        my < this.y + cellSize / 2
+      );
+    }
+  }
+
+  function clientTap() {
+    if (grid.length === 0) return;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        let cell = grid[y][x];
+        if (cell.contains(p.mouseX, p.mouseY)) {
+          cell.toggle();
+        }
+      }
+    }
+  }
+
+  p.setup = async () => {
+    let { width, height } = getContainerSize();
+    p.createCanvas(width, height);
+    p.imageMode(p.CENTER);
+
+    lps1 = await p.loadImage("/p5_assets/lps1.png");
+    lps2 = await p.loadImage("/p5_assets/lps2.png");
+    lps3 = await p.loadImage("/p5_assets/lps3.png");
+
+    buildGrid();
+  };
+
+  p.draw = () => {
+    if (grid.length === 0) return;
+
+    p.clear();
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        grid[y][x].show();
+      }
+    }
+  };
+
+  p.mousePressed = () => {
+    clientTap();
+  };
+
+  p.touchStarted = () => {
+    clientTap();
+  };
+
+  p.windowResized = () => {
+    let { width, height } = getContainerSize();
+    p.resizeCanvas(width, height);
+    buildGrid();
+  };
+};
+
+const sketch1 = [lpsSketch];
+
+export default sketch1;

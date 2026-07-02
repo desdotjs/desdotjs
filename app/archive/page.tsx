@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import styles from "./page.module.css"
 
 export default function Home() {
   useEffect(() => {
@@ -42,56 +43,20 @@ export default function Home() {
         <div className="header-container">
           <h1>desdotjs</h1>
         </div>
-
-        <div className="button-container">
-          <a href="/journal">
-          </a>
-        </div>
       </div>
 
       <div className="cv-container">
-        <h1>artist cv</h1>
-
-        <h3>Education</h3>
-        <h4>School of the Art Institute of Chicago 2024 - 2027</h4>
-        <p><i>Bachelors of Fine Arts and Creative Technologies</i></p>
-        <p>
-          Interdisciplinary coursework spanning interactive systems, generative media, 3D
-          environments, video editing, UI/UX fundamentals, and TouchDesigner.
-        </p>
-
-        <hr />
-
-        <h3>Exhibitions</h3>
-        <h4>
-          2025 - Installation,{" "}
-          <a href="https://desdotjs.github.io/weird-girl-world/laundry-space/laundry-space-index.html">
-            <i>Laundry Space</i>
-          </a>
-        </h4>
-        <p><i>School of the Art Institute Technology Department, Chicago, IL</i></p>
-
-        <hr />
-
-        <h3>Projects</h3>
-        <h4>
-          2026 to Present -{" "}
-          <a href="https://www.instagram.com/desdotjs/">
-            <i>@desdotjs</i>
-          </a>
-        </h4>
-        <p><i>Digital Research Journal</i></p>
-
-        <hr />
+        <h1>archive</h1>
+        <p><a href="https://desdotjs.github.io/weird-girl-world/"> https://desdotjs.github.io/weird-girl-world/" </a></p>
       </div>
 
       <div className="nav-container">
         <nav>
           <ul>
+            <li><a href="/">home</a></li>
             <li><a href="https://github.com/desdotjs">github</a></li>
             <li><a href="/journal">journal</a></li>
             <li><a href="/contact">contact</a></li>
-            <li><a href="/archive">archive</a></li>
           </ul>
         </nav>
       </div>
