@@ -8,6 +8,7 @@ const lpsSketch = (p) => {
   let grid = [];
   let cols, rows;
   let cellSize;
+  let toggledCells = new Set();
 
   function getContainerSize() {
     let container = p.canvas.parentElement;
@@ -38,17 +39,23 @@ const lpsSketch = (p) => {
         let cx = x * cellSize + cellSize / 2;
         let cy = y * cellSize + cellSize / 2;
         let baseImg = (x + y) % 2 === 0 ? lps1 : lps2;
-        grid[y][x] = new Cell(cx, cy, baseImg);
+        grid[y][x] = new Cell(cx, cy, baseImg, x, y);
+
+        if (toggledCells.has(`${x},${y}`)) {
+          grid[y][x].current = lps3;
+        }
       }
     }
   }
 
   class Cell {
-    constructor(x, y, baseImg) {
+    constructor(x, y, baseImg, gridX, gridY) {
       this.x = x;
       this.y = y;
       this.base = baseImg;
       this.current = baseImg;
+      this.gridX = gridX;
+      this.gridY = gridY;
     }
 
     show() {
@@ -56,10 +63,14 @@ const lpsSketch = (p) => {
     }
 
     toggle() {
+      let key = `${this.gridX},${this.gridY}`;
+
       if (this.current === this.base) {
         this.current = lps3;
+        toggledCells.add(key);
       } else {
         this.current = this.base;
+        toggledCells.delete(key);
       }
     }
 
