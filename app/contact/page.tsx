@@ -45,9 +45,10 @@ export default function Home() {
       </div>
 
       <div className="cv-container">
-        <h1>email me</h1>
+        <h1>contact</h1>
 
-        <h3>desdotjs@gmail.com</h3>
+        <h3>email me</h3>
+        <p>desdotjs@gmail.com</p>
       </div>
 
       <div className="nav-container">
