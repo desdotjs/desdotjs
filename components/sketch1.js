@@ -1,5 +1,7 @@
 const baseCellSize = 150;
-const baseContainerWidth = 1200; // reference width cellSize was designed for
+const mobileCellSize = 90;
+const baseContainerWidth = 1200;
+const mobileBreakpoint = 768;
 
 const lpsSketch = (p) => {
   let lps1, lps2, lps3;
@@ -18,7 +20,13 @@ const lpsSketch = (p) => {
   function buildGrid() {
     let { width, height } = getContainerSize();
 
-    cellSize = baseCellSize * (width / baseContainerWidth);
+    let isMobile = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches;
+
+    if (isMobile) {
+      cellSize = mobileCellSize;
+    } else {
+      cellSize = baseCellSize * (width / baseContainerWidth);
+    }
 
     cols = Math.ceil(width / cellSize);
     rows = Math.ceil(height / cellSize);
