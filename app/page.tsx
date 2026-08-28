@@ -1,45 +1,108 @@
 "use client";
 
 import { useEffect } from "react";
+import { posts } from "@/data/posts";
+import type { Post } from "@/types/post";
 
 export default function Home() {
-  useEffect(() => {
-
-    const colors = [
-      "rgb(94, 238, 89)",
-      "rgb(255, 107, 210)",
-      "rgb(96, 90, 255)",
-      "rgb(255, 250, 95)",
-      "rgb(255, 166, 50)",
-      "rgb(227, 65, 65)",
-      "rgb(63, 195, 251)",
-      "rgb(204, 74, 252)"
-
-    ];
-
-    let storedIndex = localStorage.getItem("colors");
-
-    let index : number = storedIndex == null ? 0 : Number(storedIndex);
-    console.log(index);
-    // check whether storedIndex is null. if it is, start index at 0. if it isn’t, turn storedIndex into a number and assign it to index
-
-    document.body.style.backgroundColor = colors[index];
-    // document.body.style.backgroundColor is used in vanilla JS - "canvas" is a p5 thing
-
-    index++;
-    console.log(index);
-    if (index >= colors.length) index = 0;
-
-    localStorage.setItem("colors", `${index}`)
-
-  }, []);
 
   return (
     <>
 
+      <div className="page-header-container">
 
-          <h1>busy making things harder because of the principle. check back later </h1>
+        <div className="page-header-bar">
 
+          <p>list / grid view</p>
+          <p>desdotjs.com</p>
+          <p>social icons</p>
+
+        </div>
+
+      </div>
+
+      <div className="profile-header-container">
+
+        <div className="pfp">
+
+        </div>
+
+        <div className="profile-info">
+
+          <div className="profile-nav-buttons">
+
+            <ul>
+              <li>archive</li>
+              <li>documentation</li>
+              <li>contact</li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="post-tile-wrapper">
+
+        <div className="post-tile">
+
+          <div className="post-body">
+
+            <div className="post-media-2">
+              {/* canvas or img */}
+            </div>
+
+            <div className="post-actions">
+              <div className="action-upvote">▲</div>
+              <div className="action-bookmark">▢</div>
+              <div className="action-message">✉</div>
+            </div>
+
+          </div>
+
+          <div className="post-meta">
+            <span className="post-title">Title</span>
+            <span className="post-date">date</span>
+            <p className="post-description">Description goes here</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="post-tile-wrapper">
+
+        <div className="post-tile">
+
+          <div className="post-body">
+
+            <div className="post-media">
+              {/* canvas or img */}
+            </div>
+
+            <div className="post-actions">
+              <div className="action-upvote">▲</div>
+              <div className="action-bookmark">▢</div>
+              <div className="action-message">✉</div>
+            </div>
+
+          </div>
+
+          <div className="post-meta">
+            <span className="post-title">Title</span>
+            <span className="post-date">date</span>
+            <p className="post-description">Description goes here</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="footer">
+
+      </div>
 
     </>
   );
